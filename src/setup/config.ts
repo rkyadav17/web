@@ -1,16 +1,14 @@
 import {
   APP_VERSION,
   BACKEND_URL,
-  DISCORD_LINK,
-  DONATION_LINK,
+  
   GITHUB_LINK,
 } from "./constants";
 
 interface Config {
   APP_VERSION: string;
   GITHUB_LINK: string;
-  DONATION_LINK: string;
-  DISCORD_LINK: string;
+  
   DMCA_EMAIL: string;
   TMDB_READ_API_KEY: string;
   CORS_PROXY_URL: string;
@@ -28,8 +26,7 @@ interface Config {
 export interface RuntimeConfig {
   APP_VERSION: string;
   GITHUB_LINK: string;
-  DONATION_LINK: string;
-  DISCORD_LINK: string;
+
   DMCA_EMAIL: string | null;
   TMDB_READ_API_KEY: string | null;
   NORMAL_ROUTER: boolean;
@@ -48,8 +45,7 @@ const env: Record<keyof Config, undefined | string> = {
   TMDB_READ_API_KEY: import.meta.env.VITE_TMDB_READ_API_KEY,
   APP_VERSION: undefined,
   GITHUB_LINK: undefined,
-  DONATION_LINK: undefined,
-  DISCORD_LINK: undefined,
+ 
   ONBOARDING_CHROME_EXTENSION_INSTALL_LINK: import.meta.env
     .VITE_ONBOARDING_CHROME_EXTENSION_INSTALL_LINK,
   ONBOARDING_FIREFOX_EXTENSION_INSTALL_LINK: import.meta.env
@@ -89,8 +85,7 @@ export function conf(): RuntimeConfig {
   return {
     APP_VERSION,
     GITHUB_LINK,
-    DONATION_LINK,
-    DISCORD_LINK,
+   
     DMCA_EMAIL: getKey("DMCA_EMAIL"),
     ONBOARDING_CHROME_EXTENSION_INSTALL_LINK: getKey(
       "ONBOARDING_CHROME_EXTENSION_INSTALL_LINK",
